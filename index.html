@@ -1,0 +1,105 @@
+
+ 
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="color-scheme" content="only light" />
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    :root {
+      --jsf-primary-color: #E32D57;
+      --jsf-primary-color--light: #E32D57;
+      --jsf-contrast-color: white;
+      --jsf-contrast-color--light: white;
+    }
+
+    :root {
+      color-scheme: light dark; /* both supported */
+    }
+
+    input {
+      background-color: transparent;
+    }
+
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    #body {
+      background-color: white;
+    }
+
+    .rect {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      height: 222px;
+      color: white;
+      z-index: 100000;
+      left: 0;
+      width: 100%;
+      justify-content: center;
+      top: 0;
+      background: linear-gradient(92.53deg, #252525 7.07%, #252525 87.79%);
+    }
+    .title {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 800;
+      font-size: 30px;
+      color: #f4f4f4;
+      padding: 0 21px;
+      padding-bottom: 22px;
+      text-align: center;
+    }
+
+    @media only screen and (max-width: 380px) {
+      .title {
+        font-size: 32px;
+        padding-top: 20px;
+      }
+    }
+
+    .wrapper {
+      background-color: #252525;
+    }
+
+    .form {
+      border-radius: 20px 20px 0px 0px;
+      background-color: white;
+    }
+    .jsf-form-container {
+      background-color: transparent!important;
+    }
+  </style>
+  <body id="body">
+  <div class="rect">
+    <div class="title">Only a few steps<br>
+      to get a loan!</div>
+  </div>
+    <div class="wrapper">
+      <jsf-form class="form"></jsf-form>
+    </div>
+    <script>
+      window.lmpost = window.lmpost || {};
+      window.lmpost.options = {"campaignid":271742,"subId":"","testResult":"","errorURL":"","declinedURL":"","sourceSubId":"","theme":"white"};
+    </script>
+    <script async src="https://formrequests.com/installment36/1q_ac/form-loader.js"></script>
+  </body>
+</html>
