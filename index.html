@@ -87,6 +87,24 @@
     .jsf-form-container {
       background-color: transparent!important;
     }
+
+    .jsf-progress-bar {
+      display: none;
+    }
+
+    .test {
+      text-align: center;
+      padding-top: 40px;
+    }
+
+    .test-title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .test-body {
+      font-size: 20px;
+    }
   </style>
   <body id="body">
   <div class="rect">
@@ -94,7 +112,7 @@
       to get a loan!</div>
   </div>
     <div class="wrapper">
-      <jsf-form class="form"></jsf-form>
+      <jsf-form id="test" class="form"></jsf-form>
     </div>
     <script>
       window.lmpost = window.lmpost || {};
@@ -102,4 +120,37 @@
     </script>
     <script async src="https://formrequests.com/installment36/1q_ac/form-loader.js"></script>
   </body>
+  <script>
+    var formElement = document.getElementById('test');
+    var lastStepCallback = function () {
+      formElement.innerHTML = `
+        <div class="test">
+           <h4 class="test-title">Our manager will connect you</h4>
+           <p class="test-body">Please wait phone call or email</p>
+        </div>
+      `
+    };
+
+    var isRaplaced = false
+
+    var afterFormInitCallback = function () {
+      if(isRaplaced) return;
+      var titles = Array.from(document.querySelectorAll('.jsf-form-title-main') || []);
+      var isSocialSecurityNumber = titles.some(title => title.innerText === 'Social Security Number')
+      if (isSocialSecurityNumber) {
+        isRaplaced = true;
+        var oldButton = document.getElementsByTagName('button')[0];
+        var newButton = oldButton.cloneNode(true);
+        oldButton.parentNode.replaceChild(newButton, oldButton);
+        newButton.addEventListener('click', lastStepCallback)
+      }
+    };
+
+    var observer = new MutationObserver(afterFormInitCallback);
+    observer.observe(formElement, {
+      childList: true,
+      subtree: true,
+    });
+
+  </script>
 </html>
